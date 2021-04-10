@@ -34,6 +34,8 @@ def Tasky(num):
     cur = db_connection.cursor()
     inf = list(cur.execute(f'SELECT task_number, task_theme, task_equation, task_max_mark, task_date FROM Task WHERE task_id = {int(num)}').fetchone())
     print(inf)
+    cur.close()
+    db_connection.close()
     return render_template('task.html', number = inf[0], theme = inf[1], eq = inf[2], maxi = inf[3], date = inf[4])
 
 @app.route('/theory')
