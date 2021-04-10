@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" content="table">
+    <title>{{ name }}</title>
+</head>
+<body>
+<table class="table-hover">
+    <thead>
+        <th scope="col">#</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+    {% for i in data %}
+        <tr>
+            <td>{{ i[0] }}</td>
+            <td>{{ i[1] }}</td>
+        </tr>
+    {% endfor %}
+        <tr>
+            <td>{{ i }}</td>
+        </tr>
+    </tbody>
+</table>
+</body>
+</html>
