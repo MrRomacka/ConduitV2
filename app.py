@@ -3,6 +3,7 @@ import sqlite3
 
 app = Flask(__name__)
 
+
 @app.route('/')
 def full():
     db_connection = sqlite3.connect('db/marks.db')
@@ -28,6 +29,7 @@ def full():
                 data[j-1].append([0, m_m, 0])
     return render_template('tb_2.html', data = data, numerous = numerous)
 
+
 @app.route('/task/<num>')
 def Tasky(num):
     db_connection = sqlite3.connect('db/marks.db')
@@ -38,9 +40,6 @@ def Tasky(num):
     db_connection.close()
     return render_template('task.html', number = inf[0], theme = inf[1], eq = inf[2], maxi = inf[3], date = inf[4])
 
-@app.route('/theory')
-def Theoritic():
-    return
 
 @app.route('/indiv/<pos>')
 def pupil(pos):
@@ -64,7 +63,6 @@ def pupil(pos):
     cur.close()
     db_connection.close()
     return render_template('solo.html', data = data, name = name)
-
 
 
 if __name__ == '__main__':
