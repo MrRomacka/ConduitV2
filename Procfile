@@ -1,3 +1,3 @@
-web: gunicorn
+web: gunicorn app:app
 heroku ps:scale web=1
-worker: python -u app.py
+heroku config:add PORT=33507
