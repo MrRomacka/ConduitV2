@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+<table class="table-hover" border="" align="center">
+    <thead>
+        <th scope="col">  Ученик  </th>
+        {% for i in numerous %}
+        <th scope="col" align="center"><a href=https://conduit-for-us.herokuapp.com/task/{{ i }}>{{ i }}</a></th>
+        {% endfor %}
+    </thead>
+    <tbody>
+    {% for inf in data %}
+        <tr>
+            <td align="left"><a href=https://conduit-for-us.herokuapp.com/indiv/{{ inf[0][1] }}>{{ inf[0][0] }}</a></td>
+            {% for j in inf %}
+                {% if j[2] == 0 %}
+                    {% if j[0] == j[1] %}
+                        <td class="table-success" align="center">{{ j[0] }}</td>
+                    {% elif j[0] != 0 %}
+                        <td class="table-info" align="center">{{ j[0] }}</td>
+                    {% else %}
+                        <td class="table-danger" align="center">{{ j[0] }}</td>
+                    {% endif %}
+                {% endif %}
+            {% endfor %}
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

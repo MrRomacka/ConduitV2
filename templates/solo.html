@@ -1,35 +1,30 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8" content="table">
-    <title>{{ name }}</title>
-    <link rel="stylesheet" href="/static/css/bootstrap.css">
-</head>
-<body>
-<h1>{{ name }}</h1>
-<table class="table-hover" border="">
+{% extends "base.html" %}
+
+{% block content %}
+<h2 align="center" >{{ name }}</h2>
+<table class="table-hover" border="" align="center">
     <thead>
-        <th scope="col">#</th>
-        <th scope="col">Оценка</th>
-        <th scope="col">Максимальный балл</th>
+        <th scope="col">  #  </th>
+        <th scope="col">  Оценка  </th>
+        <th scope="col">  Максимальный балл  </th>
     </thead>
     <tbody>
     {% for i in data %}
         {% if i[1] == i[2] %}
         <tr class="table-success">
-            <td><a href=ex/{{ i[0] }}> {{ i[0] }} </a></td>
+            <td><a href=https://conduit-for-us.herokuapp.com/task/{{ i[0] }}> {{ i[0] }} </a></td>
             <td>{{ i[1] }}</td>
             <td>{{ i[2] }}</td>
         </tr>
         {% elif i[1] != 0 %}
         <tr class="table-info">
-            <td><a href=ex/{{ i[0] }}> {{ i[0] }} </a></td>
+            <td><a href=https://conduit-for-us.herokuapp.com/task/{{ i[0] }}> {{ i[0] }} </a></td>
             <td>{{ i[1] }}</td>
             <td>{{ i[2] }}</td>
         </tr>
         {% else %}
         <tr class="table-danger">
-            <td><a href=ex/{{ i[0] }}> {{ i[0] }} </a></td>
+            <td><a href=https://conduit-for-us.herokuapp.com/task/{{ i[0] }}> {{ i[0] }} </a></td>
             <td>{{ i[1] }}</td>
             <td>{{ i[2] }}</td>
         </tr>
@@ -37,5 +32,4 @@
     {% endfor %}
     </tbody>
 </table>
-</body>
-</html>
+{% endblock %}
